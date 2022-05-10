@@ -14,6 +14,8 @@ import Home from './routes/home';
 import Episode from './routes/episode';
 import Episodes from './routes/episodes';
 import App from './App';
+import Characters from './routes/characters';
+import Character from './routes/character';
 
 const client = new ApolloClient({
   uri: GQL_URI,
@@ -30,17 +32,10 @@ root.render(
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
-              <Route path="episodes" element={<Episodes />}>
-                <Route
-                  index
-                  element={(
-                    <main style={{ padding: '1rem' }}>
-                      <p>Select an invoice</p>
-                    </main>
-                  )}
-                />
-                <Route path=":episodeId" element={<Episode />} />
-              </Route>
+              <Route path="episodes" element={<Episodes /> }/>
+              <Route path="episodes/:episodeId" element={<Episode />} />
+              <Route path="characters" element={<Characters />} />
+              <Route path="characters/:characterId" element={<Character />} />
             </Route>
             {/* <Route path="/" element={<App />} />
             <Route path="/invoices" element={<Invoices />} /> */}

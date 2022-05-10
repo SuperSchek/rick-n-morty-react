@@ -1,19 +1,18 @@
-import { Link, Outlet } from 'react-router-dom';
-import './App.css';
+import { Container } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
+import AppHeader from './components/AppHeader';
+import './App.scss';
 
 function App() {
   return (
-    <div>
-      <nav
-        style={{
-          borderBottom: 'solid 1px',
-          paddingBottom: '1rem',
-        }}
-      >
-        <Link to="/episodes">Episodes</Link>
-      </nav>
-      <Outlet />
-    </div>
+    <>
+      <AppHeader />
+      <Container maxWidth="container.xl">
+        <main>
+          <Outlet />
+        </main>
+      </Container>
+    </>
   );
 }
 

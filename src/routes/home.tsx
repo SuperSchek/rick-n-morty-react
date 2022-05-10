@@ -1,36 +1,16 @@
-import { useState, useMemo } from 'react';
-import { Input } from '@chakra-ui/react';
-import throttle from 'lodash.throttle';
-import { useQuery } from '@apollo/client';
-import { EPISODES } from '../../queries';
+import { Container, Flex, Heading, Text } from '@chakra-ui/react';
 
 function Home() {
-  const { loading, error, data } = useQuery(EPISODES);
-  const [query, setQuery] = useState('');
-  // const handleChange = ({ target: { value } }: { target: { value: string } }) => {
-  //   throttle(() => {
-  //     setQuery(value);
-  //   }, 500);
-  // };
-
-  const handleChange = throttle(({ target: { value } }: { target: { value: string } }) => {
-    setQuery(value);
-  }, 1000);
-
-  useMemo(() => {
-    console.log(query);
-  }, [query]);
-
   return (
-    <>
-      <Input
-        placeholder="Find episodes or characters..."
-        onChange={handleChange}
-      />
-      {query}
-      <pre>{JSON.stringify(loading)}</pre>
-      <pre>{JSON.stringify(data)}</pre>
-    </>
+    <Flex align="center" height="calc(100vh - 70px)">
+      <Container>
+        <Heading size="xl" paddingBlockEnd={5}>Welcome to RMdb!</Heading>
+        <Text>
+          This is a fake project. Hence the empty homepage.
+          Please use the searchbar in the header to find anything Rick &amp; Morty!
+        </Text>
+      </Container>
+    </Flex>
   );
 }
 
